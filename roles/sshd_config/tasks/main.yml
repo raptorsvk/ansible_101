@@ -1,0 +1,7 @@
+- name: Disable CBC and force the latest ciphers and algorithms for SSH
+  copy:
+    src:  "{{ role_path }}/templates/sshd_config"
+    dest: /etc/ssh/sshd_config
+  notify: 
+    - ssh-restart
+  become: yes
